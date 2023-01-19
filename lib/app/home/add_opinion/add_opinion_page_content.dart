@@ -38,7 +38,7 @@ class _AddOpinionPageContentState extends State<AddOpinionPageContent> {
             ),
             TextField(
               decoration: const InputDecoration(
-                hintText: 'Enter the name of the pizza',
+                hintText: 'Enter the name of the dish',
               ),
               onChanged: (newValue) {
                 setState(() {
