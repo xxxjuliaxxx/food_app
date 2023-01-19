@@ -32,14 +32,26 @@ class RestaurantsPageContent extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(document['name']),
-                          Text(document['pizza']),
-                        ],
+                      Dismissible(
+                        key: ValueKey(document.id),
+                        onDismissed: (_) {
+                          FirebaseFirestore.instance
+                              .collection('restaurants')
+                              .doc(document.id)
+                              .delete();
+                        },
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(document['name']),
+                            Text(document['pizza']),
+                            Padding(
+                              padding: const EdgeInsets.all(15),
+                              child: Text(document['rating'].toString()),
+                            ),
+                          ],
+                        ),
                       ),
-                      Text(document['rating'].toString()),
                     ],
                   ),
                 ),
