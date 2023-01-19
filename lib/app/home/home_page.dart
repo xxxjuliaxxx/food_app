@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Best food in Gdańsk'),
+        title: const Text('Rate best food in your city'),
         backgroundColor: const Color.fromARGB(255, 147, 186, 105),
       ),
       body: Builder(builder: (context) {
@@ -52,15 +52,27 @@ class _HomePageState extends State<HomePage> {
         },
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.reviews),
+            icon: Icon(
+              Icons.reviews,
+              color: Color.fromARGB(255, 147, 186, 105),
+              size: 32,
+            ),
             label: 'Reviews',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add),
+            icon: Icon(
+              Icons.add,
+              color: Color.fromARGB(255, 147, 186, 105),
+              size: 40,
+            ),
             label: 'Add',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(
+              Icons.person,
+              color: Color.fromARGB(255, 147, 186, 105),
+              size: 32,
+            ),
             label: 'My account',
           ),
         ],

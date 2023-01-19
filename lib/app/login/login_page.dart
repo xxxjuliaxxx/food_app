@@ -27,9 +27,12 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(isCreatingAcoount == true
-                  ? 'Zarejestruj się'
-                  : 'Zaloguj się'),
+              Text(
+                isCreatingAcoount == true
+                    ? 'First, sign up!'
+                    : 'Try sign in :)',
+                style: const TextStyle(fontSize: 23),
+              ),
               const SizedBox(
                 height: 20,
               ),
@@ -42,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
               TextField(
                 controller: widget.passwordcontroller,
                 decoration: const InputDecoration(
-                  hintText: 'Hasło:',
+                  hintText: 'Password:',
                 ),
                 obscureText: true,
               ),
@@ -52,6 +55,8 @@ class _LoginPageState extends State<LoginPage> {
                 height: 20,
               ),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 147, 186, 105)),
                 onPressed: () async {
                   if (isCreatingAcoount == true) {
                     // rejestracja
@@ -82,9 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                     }
                   }
                 },
-                child: Text(isCreatingAcoount == true
-                    ? 'Zarejestruj się'
-                    : 'Zaloguj się'),
+                child: Text(isCreatingAcoount == true ? 'Sign up' : 'Sign in'),
               ),
               const SizedBox(
                 height: 20,
@@ -96,17 +99,20 @@ class _LoginPageState extends State<LoginPage> {
                       isCreatingAcoount = true;
                     });
                   },
-                  child: const Text('Utwórz konto'),
+                  child: const Text('Create account'),
                 ),
               ],
               if (isCreatingAcoount == true) ...[
                 TextButton(
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                          const Color.fromARGB(255, 147, 186, 105))),
                   onPressed: () {
                     setState(() {
                       isCreatingAcoount = false;
                     });
                   },
-                  child: const Text('Masz juz konto?'),
+                  child: const Text('Do you already have an account?'),
                 ),
               ],
             ],

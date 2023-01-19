@@ -47,6 +47,8 @@ class _AddOpinionPageContentState extends State<AddOpinionPageContent> {
               },
             ),
             Slider(
+              activeColor: const Color.fromARGB(255, 147, 186, 105),
+              inactiveColor: Colors.grey,
               onChanged: (newValue) {
                 setState(() {
                   rating = newValue;
@@ -59,6 +61,8 @@ class _AddOpinionPageContentState extends State<AddOpinionPageContent> {
               label: rating.toString(),
             ),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 147, 186, 105)),
               onPressed: restaurantName.isEmpty || pizzaName.isEmpty
                   ? null
                   : () {
