@@ -4,6 +4,7 @@ import 'package:food_app/app/home/add_opinion/add_opinion_page_content.dart';
 import 'package:food_app/app/home/my_account/my_account_page_content.dart';
 import 'package:food_app/app/home/restaurants/restaurants_page_content.dart';
 
+
 class HomePage extends StatefulWidget {
   const HomePage({
     Key? key,
