@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:food_app/app/home/home_page.dart';
 import 'package:food_app/app/login/login_page.dart';
 import 'firebase_options.dart';
-import 'dart:html';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
