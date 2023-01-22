@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_app/app/features/home/restaurants/cubit/restaurants_cubit.dart';
 
 class RestaurantsPageContent extends StatelessWidget {
   const RestaurantsPageContent({
@@ -8,21 +10,20 @@ class RestaurantsPageContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-        stream: FirebaseFirestore.instance
-            .collection('restaurants')
-            .orderBy('rating', descending: true)
-            .snapshots(),
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            return const Center(child: Text('Something went wrong'));
+    return BlocProvider(
+      create: (context) => RestaurantsCubit()..start(),
+      child: BlocBuilder<RestaurantsCubit, RestaurantsState>(
+        builder: (context, state) {
+          if (state.errorMessage.isNotEmpty) {
+            return Center(
+                child: Text('Something went wrong: ${state.errorMessage}'));
           }
 
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: Text('Loading'));
+          if (state.isLoading) {
+            return const Center(child: CircularProgressIndicator());
           }
 
-          final documents = snapshot.data!.docs;
+          final documents = state.documents;
 
           return ListView(
             children: [
@@ -58,6 +59,8 @@ class RestaurantsPageContent extends StatelessWidget {
               ],
             ],
           );
-        });
+        },
+      ),
+    );
   }
 }
