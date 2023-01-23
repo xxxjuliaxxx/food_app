@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-
 class AddOpinionPageContent extends StatefulWidget {
   const AddOpinionPageContent({
     Key? key,
@@ -45,7 +44,7 @@ class _AddOpinionPageContentState extends State<AddOpinionPageContent> {
                 setState(() {
                   pizzaName = newValue;
                 });
-              }, 
+              },
             ),
             Slider(
               activeColor: const Color.fromARGB(255, 147, 186, 105),

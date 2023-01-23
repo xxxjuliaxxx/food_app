@@ -104,9 +104,6 @@ class _LoginPageState extends State<LoginPage> {
               ],
               if (isCreatingAcoount == true) ...[
                 TextButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                          const Color.fromARGB(255, 147, 186, 105))),
                   onPressed: () {
                     setState(() {
                       isCreatingAcoount = false;
